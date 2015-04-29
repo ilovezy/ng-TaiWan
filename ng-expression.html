@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="ccApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>防止双括号冲突</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container">
+	<h2 class="text-center">可以防止 { { 和 } } 与其他的语言产生冲突 <small>详见html代码咯</small></h2>
+	<label>Name: <input type="text" ng-model="name" placeholder="Enter a name here" class="form-control" /></label>
+	<hr />
+	<h3>HELLO {{ name || 'AngularJS' }}</h3>
+	<h3 class="text-info">HELLO <% name || 'AngularJS' %> !!</h3>
+	<p class="alert alert-success"> 用 module.config() 的 $interpolateProvider.startSymbol和 .endSymbol来修改</p>
+
+<pre>
+var ccApp = angular.module('ccApp', [])
+
+// 通过这个可以设置 ng 的表达式括号形式
+	ccApp.config(function($interpolateProvider){
+	$interpolateProvider.startSymbol('<%')
+	$interpolateProvider.endSymbol('%>')
+})
+</pre>
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var ccApp = angular.module('ccApp', [])
+
+// 通过这个可以设置 ng 的表达式括号形式
+ccApp.config(function($interpolateProvider){
+	$interpolateProvider.startSymbol('<%')
+	$interpolateProvider.endSymbol('%>')
+})
+
+</script>
+
+</body>
+</html>

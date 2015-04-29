@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ng-bind</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body ng-app>
+
+<div class="container">
+	<h2 class="text-center">ng-bind</h2>
+	<p class="help-block">两种方式 ng-bind 或者 { { expression } } 都行</p>
+	<div class="well">
+		<label>Name: <input type="text" ng-model="name" placeholder="Enter a name here" class="form-control" /></label>
+		<hr />
+		<h2>HELLO {{ name || 'AngularJS' }} !!</h2>
+		<h2>you  <span class="label label-success" ng-bind="name || 'AngularJS' "></span> !!</h2>
+	</div>
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>自定义过滤器</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app="myApp">
+
+<div class="container" ng-controller="Ctrl">
+	<h2 class="text-center">自定义过滤器</h2>
+	<p class="alert alert-info">{{ text | clean }}</p>
+	<hr />
+	<h3>angular自定义过滤器 .filter(name, filterFactory)</h3>
+	<pre>
+	yourModule.filter('yourFilterName', function(){
+		return function(){
+			return result
+		}
+	})
+	</pre>
+	<p class="alert alert-success">通过闭包来建立处理用的函数</p>
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var myApp = angular.module('myApp', [])
+
+myApp.controller('Ctrl', function($scope){
+	$scope.text = 'hello kitty'
+})
+
+myApp.filter('clean', function(){
+	return function(str){
+		return str.toLowerCase().replace(/\s+/g, ' 欧日 ')
+	}
+})
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="sampleApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>网页MVVM基本架构</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+<div class="container" ng-controller="mainCtrl">
+	<h2 class="text-center">lab 1 - 计算型属性 <small>就算是计算式也会同步计算执行</small></h2>
+	<input type="text" ng-model="firstName" class="form-control" />
+	<input type="text" ng-model="lastName" class="form-control" />
+	<br />
+	<span class="label label-info" ng-bind="getFullName()"></span>
+	<br />
+	<span class="label label-danger">{{ getFullName() }}</span>
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('sampleApp', [])
+	.controller('mainCtrl', function($scope){
+		$scope.firstName = 'jerry'
+		$scope.lastName = 'lee'
+		$scope.getFullName = function(){
+			return $scope.firstName + '  ' + $scope.lastName
+		}
+	})
+
+// 这个写法是错误的
+/*
+angular.module('sampleApp', [])
+	.controller('mainCtrl', function($scope){
+		 function myViewModel(){
+			var self = this
+
+			self.firstName = 'MIS'
+			self.lastName = 'CC'
+			self.getFullName = function(){
+				return self.firstName + self.lastName
+			}
+		 }
+
+		 $scope.modell = new myViewModel()
+	})
+*/
+</script>
+
+</body>
+</html>

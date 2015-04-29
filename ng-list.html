@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>list</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+</head>
+
+<body ng-app>
+
+<div class="container">
+<h2 class="text-center">ng list</h2>
+<p class="alert alert-info">ng-list 默认为 ' , ' 作为分隔符，可以给参数 ng-list="|" 等，那么输入的时候需要用 '|' 来分割参数，让生产的值变为一个数组，参数甚至可以用正则 <span class="label label-danger">如果想用空格的话必须要用正则 /\s/ 来作为参数哦</span></p>
+<div class="well">
+	<input type="text" ng-model="tags" ng-list=/\s/ class="form-control" />
+	<br />
+	<div class="alert alert-warning">
+		tags = {{ tags }}
+	</div>
+</div>
+
+</div>
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+
+</script>
+
+</body>
+</html>
